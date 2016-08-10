@@ -42,6 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
+//alert("Debut du js");
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -59,11 +60,13 @@ var registered = false;
 var incoming = null;
 
 
-$(document).ready(function() {
+	//alert("On est dans le ready");
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
-		window.onload=function() {
+		//alert("on est dans janus.init");
+		$('#start').click(function() {
+			//alert("on passe dans la fonction");
 			if(started)
 				return;
 			started = true;
@@ -388,7 +391,7 @@ $(document).ready(function() {
 				});
 		});
 	}});
-});
+
 	
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
